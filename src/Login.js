@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./App.css"
+import { useState } from "react";
 
 
 
@@ -16,6 +17,15 @@ export default function Loginpage(){
     const navigate = useNavigate();
   
     const dispatch = useDispatch()
+    
+    
+       const [emails,setemails] = useState({email:"hkathiresan@gmail.com", password:"kathir"})
+ 
+ let setlogin = ()=>{
+   formik.setValues(emails)
+  }
+ 
+ 
     // formik library for form-validation
    
     const formik = useFormik({
@@ -90,6 +100,7 @@ export default function Loginpage(){
              <div className="d-flex justify-content-end p-2">
       <Link to="/register" style={{textDecoration:"none"}}><Button variant="text" >New user?</Button></Link>
       <Link to="/forgot-password" style={{textDecoration:"none"}}> <Button size="small" >Forgot password</Button></Link>
+          <div className="d-flex justify-content-end p-2"><button className="btn btn-primary" onClick={()=>{setlogin()}}>Credentials</button></div>
        </div>
         
     </Box>
